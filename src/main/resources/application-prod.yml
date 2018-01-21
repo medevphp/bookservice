@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: book-service
+  profiles:
+    active: prod
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:32771/book_service?useSSL=false&useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: 2017ylda0l3R
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      connection-test-query: SELECT 1;
+      minimum-idle: 4
+      maximum-pool-size: 4
+      pool-name: book-service
+      connection-timeout: 60000
+  jpa:
+    generate-ddl: false
+    hibernate:
+      ddl-auto: none
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    database: mysql
+    show-sql: true
+
+liquibase:
+  enabled: true

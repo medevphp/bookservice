@@ -1,0 +1,16 @@
+databaseChangeLog:
+  - changeSet:
+      id: v1
+      author: epiard
+      comment: "Initial migration"
+      changes:
+          - tagDatabase:
+              tag: v1
+          - sqlFile:
+              dbms: mysql
+              path: v1.sql
+              relativeToChangelogFile: true
+      rollback:
+          - sqlFile:
+              path: v1_rollback.sql
+              relativeToChangelogFile: true
